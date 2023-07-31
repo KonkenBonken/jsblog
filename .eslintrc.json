@@ -1,7 +1,6 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
@@ -9,6 +8,10 @@
   "ignorePatterns": [
     "test.*"
   ],
+  "globals": {
+    "JSX": "readonly",
+    "React": "readonly"
+  },
   "rules": {
     "import/no-anonymous-default-export": "off",
     "semi": "warn",
@@ -18,6 +21,7 @@
     "space-in-parens": "warn",
     "jsx-quotes": "warn",
     "max-statements-per-line": "warn",
+    "no-unused-vars": "warn",
     "no-var": "off",
     "no-loop-func": "off",
     "eol-last": [
