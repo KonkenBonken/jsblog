@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import Library from 'content/Library';
-import type { GetStaticPaths, NextPage } from 'next';
+import type { NextPage } from 'next';
 import { assertDefined } from 'utils/assert';
 
 import './globals.css';
@@ -22,11 +22,5 @@ const Page: NextPage<{ params: pageProps }> = ({ params: { article } }) => {
 
 export default Page;
 
-export const getStaticPaths: GetStaticPaths<pageProps> = () => {
-  return {
-    paths: Library.titles.map(article => ({
-      params: { article }
-    })),
-    fallback: false,
-  };
-};
+export const generateStaticParams = (): pageProps[] =>
+  Library.titles.map(article => ({ article }));
