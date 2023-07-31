@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import Library from 'content/Library';
+import Article from 'content/Article';
 import type { NextPage } from 'next';
 import { assertDefined } from 'utils/assert';
 
@@ -10,7 +10,7 @@ type pageProps = {
 }
 
 const Page: NextPage<{ params: pageProps }> = ({ params: { article } }) => {
-  const markdown = Library.getArticle(article);
+  const markdown = Article.getArticle(article)?.markdown;
   assertDefined(markdown);
 
   return (<>
@@ -23,4 +23,4 @@ const Page: NextPage<{ params: pageProps }> = ({ params: { article } }) => {
 export default Page;
 
 export const generateStaticParams = (): pageProps[] =>
-  Library.titles.map(article => ({ article }));
+  Article.titles.map(article => ({ article }));

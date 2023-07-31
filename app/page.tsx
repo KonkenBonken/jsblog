@@ -1,9 +1,9 @@
-import Library from "content/Library";
+import Article from "content/Article";
 
 export default function RootLayout() {
   return (
     <ul>
-      {Library.titles.map(title => <li key={title}>
+      {Article.titles.map(title => <li key={title}>
         <a href={title}>{title}</a>
       </li>)}
     </ul>
