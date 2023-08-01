@@ -10,7 +10,8 @@ export default OverrideCodeComponent(({ content }) => {
     showLineNumbers
     customStyle={{
       display: 'inline-block',
-      minWidth: '40vw'
+      minWidth: '40vw',
+      backgroundColor: '#d9e8f9',
     } satisfies CSSProperties}
   >
     {content}
