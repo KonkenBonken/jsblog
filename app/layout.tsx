@@ -1,3 +1,4 @@
+import Header from 'components/Header';
 import './globals.scss';
 
 export default function Layout({
@@ -8,7 +9,10 @@ export default function Layout({
 ) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
