@@ -3,6 +3,7 @@ import ReactMarkdown from 'markdown-to-jsx';
 
 import Article from 'content/Article';
 import { assertDefined } from 'utils/assert';
+import CodeBlock from 'components/CodeBlock';
 
 type pageProps = {
   article: string
@@ -13,7 +14,11 @@ const Page: NextPage<{ params: pageProps }> = ({ params: { article } }) => {
   assertDefined(markdown);
 
   return (<>
-    <ReactMarkdown>
+    <ReactMarkdown options={{
+      overrides: {
+        pre: CodeBlock
+      }
+    }}>
       {markdown}
     </ReactMarkdown>
   </>);
