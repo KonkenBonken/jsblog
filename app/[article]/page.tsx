@@ -4,8 +4,7 @@ import ReactMarkdown from 'markdown-to-jsx';
 import Article from 'content/Article';
 import { assertDefined } from 'utils/assert';
 import CodeBlock from 'components/CodeBlock';
-
-import './globals.css';
+import Typography from 'components/Typography';
 
 type pageProps = {
   article: string
@@ -18,7 +17,10 @@ const Page: NextPage<{ params: pageProps }> = ({ params: { article } }) => {
   return (<>
     <ReactMarkdown options={{
       overrides: {
-        pre: CodeBlock
+        pre: CodeBlock,
+        h1: Typography.H1,
+        h2: Typography.H2,
+        p: Typography.P,
       }
     }}>
       {markdown}
