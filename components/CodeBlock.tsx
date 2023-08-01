@@ -2,15 +2,23 @@
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-const CodeSnippet: Override = ({ children: { props: { children: code } } }) => {
+const CodeSnippet: Override = ({ content }) => {
   return <SyntaxHighlighter
     language="javascript" showLineNumbers
   >
-    {code}
+    {content}
   </SyntaxHighlighter >;
 };
 
-export default CodeSnippet;
+export default OverrideComponent(CodeSnippet);
+
+function OverrideComponent(Component: Override) {
+  return function OverrideWrapper(
+    { children: { props: { children: content } } }: OverrideProp
+  ) {
+    return <Component content={content} />;
+  };
+}
 
 interface OverrideProp {
   children: {
@@ -20,4 +28,4 @@ interface OverrideProp {
   }
 }
 
-type Override = (props: OverrideProp) => JSX.Element
+type Override = (props: { content: string }) => JSX.Element
