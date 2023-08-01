@@ -1,31 +1,13 @@
 "use client";
 
 import SyntaxHighlighter from 'react-syntax-highlighter';
+import OverrideComponent from 'utils/override';
 
-const CodeSnippet: Override = ({ content }) => {
+export default OverrideComponent(({ content }) => {
   return <SyntaxHighlighter
     language="javascript" showLineNumbers
   >
     {content}
   </SyntaxHighlighter >;
-};
+});
 
-export default OverrideComponent(CodeSnippet);
-
-function OverrideComponent(Component: Override) {
-  return function OverrideWrapper(
-    { children: { props: { children: content } } }: OverrideProp
-  ) {
-    return <Component content={content} />;
-  };
-}
-
-interface OverrideProp {
-  children: {
-    props: {
-      children: string
-    }
-  }
-}
-
-type Override = (props: { content: string }) => JSX.Element
