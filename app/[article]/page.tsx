@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'markdown-to-jsx';
 import Article from 'content/Article';
 import type { NextPage } from 'next';
 import { assertDefined } from 'utils/assert';
