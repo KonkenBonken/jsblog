@@ -1,9 +1,8 @@
-import ReactMarkdown from 'markdown-to-jsx';
-import Article from 'content/Article';
 import type { NextPage } from 'next';
-import { assertDefined } from 'utils/assert';
+import ReactMarkdown from 'markdown-to-jsx';
 
-import './globals.css';
+import Article from 'content/Article';
+import { assertDefined } from 'utils/assert';
 
 type pageProps = {
   article: string
