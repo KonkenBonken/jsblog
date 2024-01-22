@@ -10,10 +10,12 @@ body {
   min-height: 100vh;
   padding: 7rem 10vw 0;
 
-  > div > p:first-of-type {
-    font-weight: 600;
+  > div {
+    > p:first-of-type {
+      font-weight: 600;
+    }
 
-    &::after {
+    > h1::before {
       content: url("https://source.unsplash.com/featured/1536x240?javascript");
       display: block;
       width: 100%;
